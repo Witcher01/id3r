@@ -1,7 +1,7 @@
 # use tcc to compile
-CC = tcc
+CC = cc
 # -Wall: turn on most, but not all, compiler warnings
-CFLAGS = -Wall
+CFLAGS = -Wall -std=c99 -pedantic
 # the target executable file
 TARGET = id3r
 
@@ -11,7 +11,7 @@ default: $(TARGET)
 # to build the TARGET executable file we need the source files
 # id3v1.o
 $(TARGET): id3v1.o
-	$(CC) $(CFLAGS) -o $(TARGET) id3v1.o
+	$(CC) $(CFLAGS) -o $(TARGET) id3v1.o id3r.c
 
 # to create the object file id3v1.o we need the source files
 # id3v1.c
