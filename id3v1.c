@@ -6,8 +6,8 @@
 int
 checkid3v1(FILE *f)
 {
-    /* a buffer for the first 4 bytes of the id3v1 tag + terminating NULL */
-    char buffer[5];
+    /* a buffer for the first 3 bytes of the id3v1 tag + terminating NULL */
+    char buffer[4];
     uint8_t i;
 
     /* set the current file pointer to the beginning of where the id3v1 tag should be */
@@ -15,15 +15,14 @@ checkid3v1(FILE *f)
     fseek(f, -128, SEEK_END);
 
     /* copy the first 3 bytes of the supposed id3v1 tag to the buffer */
-    for (i = 0; i < 4; ++i) {
+    for (i = 0; i < 3; ++i) {
         buffer[i] = fgetc(f);
     }
     /* add terminating NULL character to the end of the buffer, marking it as a string */
-    buffer[4] = '\0';
+    buffer[3] = '\0';
 
-    /* if first 3 bytes are "TAG" and the fourth isn't '+' */
-    /* "TAG+" indicates id3v1.1 tag which is different from the id3v1 tag */
-    if(!strcmp(buffer, "TAG") && !buffer[3] == '+') {
+    /* if first 3 bytes are "TAG" ,an id3v1 tag is present */
+    if(!strcmp(buffer, "TAG")) {
         /* 1 = true; 0 = false */
         return 1;
     }
