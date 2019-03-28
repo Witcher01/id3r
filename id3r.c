@@ -14,7 +14,11 @@ main(int argc, char *argv[])
     }
 
     f = fopen(argv[1], "rb");
-    printid3v1(f);
+
+    if(checkid3v1(f)) {
+        puts("ID3v1 tag found!");
+        printid3v1(f);
+    }
 
     return EXIT_SUCCESS;
 }
