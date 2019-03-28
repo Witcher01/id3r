@@ -1,9 +1,8 @@
-#include <inttypes.h>
 #include <string.h>
 
 #include "id3v1.h"
 
-int
+uint8_t
 checkid3v1(FILE *f)
 {
     /* a buffer for the first 3 bytes of the id3v1 tag + terminating NULL */
