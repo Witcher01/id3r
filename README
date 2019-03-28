@@ -1,0 +1,13 @@
+id3r - simple id3v1 tag reader
+==============================
+id3r is a small program to read id3v1 tags.
+
+
+Requirements
+------------
+To build id3r you need only the compiler, cc.
+
+
+Running id3r
+------------
+id3r takes only 1 argument, the filename of the mp3 file to show the id3v1 tag.
