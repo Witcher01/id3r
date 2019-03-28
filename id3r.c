@@ -31,8 +31,9 @@ main(int argc, char *argv[])
     }
 
     if(checkid3v1(f)) {
-        puts("ID3v1 tag found!");
         printid3v1(f);
+    } else {
+        puts("No id3v1 tag found.");
     }
 
     return EXIT_SUCCESS;
