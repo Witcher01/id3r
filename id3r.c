@@ -26,6 +26,10 @@ main(int argc, char *argv[])
 
     f = fopen(argv[1], "rb");
 
+    if (!f) {
+        fprintf(stderr, "error, unable to open file: %s\n", argv[1]);
+    }
+
     if(checkid3v1(f)) {
         puts("ID3v1 tag found!");
         printid3v1(f);
